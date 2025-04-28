@@ -1,0 +1,15 @@
+{
+    "builds": [
+      {
+        "src": "Okas/package.json",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/Okas/$1"
+      }
+    ]
+  }
+  
