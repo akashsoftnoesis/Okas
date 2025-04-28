@@ -1,0 +1,121 @@
+import Head from 'next/head'
+import { ApiGet } from "../ApiData"
+
+export const getMetaDetails = async (pageName) => {
+    try {
+        const response = await ApiGet(`seo-details/fetch?pageName=${pageName}`);
+        if (response.status === 200) {
+            return response.data.data
+        }
+    } catch (error) {
+        console.log('error', error);
+    }
+}
+
+const metaData = {
+    "Home": {
+        "page_name": "Home",
+        "title": "Okas Property Group - Real Estate Agency Melbourne",
+        "description": "Okas Property Group Is Local Real Estate Agency Having Experience In Buying , Selling And Renting House And Land. Our Expert Can Help You With All Your Real Estate Needs."
+    },
+    "Buy": {
+        "page_name": "Buy",
+        "title": "Selection Of Finest Properties For Sale - Okas Property Group",
+        "description": "Looking To Buy? Okas Has Your Future Home Waiting. Find Residential, Commercial And Rural Properties And Land For Sale."
+    },
+    "Buy-Open Home": {
+        "page_name": "Buy-Open Home",
+        "title": "Open For Inspection (Sales) - Okas Property Group",
+        "description": "Come And See Your New Home With Okas."
+    },
+    "Rent": {
+        "page_name": "Rent",
+        "title": "Latest Properties For Lease - Okas Property Group",
+        "description": "Finding The Right Rental Property Can Be Time-consuming And Okas Has A Complete Listing Of Rental Properties In Melbourne."
+    },
+    "Rent-Open Home": {
+        "page_name": "Rent-Open Home",
+        "title": "Open For Inspection (Rentals) - Okas Property Group",
+        "description": "Come And See Your New Rental Home With Okas."
+    },
+    "Maintenance Request": {
+        "page_name": "Maintenance Request",
+        "title": "Maintenance Request - Okas Property Group",
+        "description": "Our Maintenance Manager Is Available For You To Report Any Type Of Maintenance. Simply Fill This Form And Our Manager Will Try To Solve Your Request At The Earliest."
+    },
+    "Rental Application": {
+        "page_name": "Rental Application",
+        "title": "Residential Tenancy Application - Okas Property Group",
+        "description": "To Apply Online, Go Directly To The Property Listing On The Website, And Click The \"Apply\"."
+    },
+    "Request an Appraisal": {
+        "page_name": "Request an Appraisal",
+        "title": "What's Your Property Really Worth? Request An Appraisal - Okas Property Group",
+        "description": "Request A Complimentary, Obligation-free Appraisal Of Your Property's Current Market Price From Your Local Okas Property Group Real Estate Experts."
+    },
+    "Sold": {
+        "page_name": "Sold",
+        "title": "Recently Sold Properties - Okas Property Group",
+        "description": "Check Out Our Largest Portfolio Of Sold Properties Across Melbourne."
+    },
+    "Who We Are": {
+        "page_name": "Who We Are",
+        "title": "About Okas Property Group",
+        "description": "At Okas We Work Closely With Investors, First-home Owners, Couples, Singles And Families Just Like You To Achieve Your Real Estate Goals And Get You The Best Outcome."
+    },
+    "Projects": {
+        "page_name": "Projects",
+        "title": "Projects - Okas Property Group",
+        "description": "Check Out Our Largest Portfolio Of Construction Projects Across Melbourne."
+    },
+    "Career": {
+        "page_name": "Career",
+        "title": "Career - Okas Property Group",
+        "description": "Career - Okas Property Group"
+    },
+    "Our Offices": {
+        "page_name": "Our Offices",
+        "title": "Our Offices - Okas Property Group",
+        "description": "Find Your Local Okas Property Group Office."
+    },
+    "Our Agents": {
+        "page_name": "Our Agents",
+        "title": "Our Agents - Okas Property Group",
+        "description": "Find Your Local Okas Property Group Agent."
+    },
+    "Feedback": {
+        "page_name": "Feedback",
+        "title": "Client Feedback - Okas Property Group",
+        "description": "If You Have Any Feedback, A Compliment Or Complaint, We Want To Hear About It!"
+    }
+}
+
+const MetaHandler = ({ props }) => {
+    const {title, description} = metaData[props.pageName];
+    const fullUrl =
+    (typeof window !== "undefined" && window.location.href) || null;
+    return (
+        <Head>
+            <title>{title}</title>
+            <meta
+                property="og:title"
+                content={title}
+            />
+            <meta property="og:type" content="website" />
+            <meta property="og:url" content={fullUrl} />
+            <meta
+                property="og:description"
+                content={description}
+            />
+            <meta
+                property="description"
+                content={description}
+            />
+            <meta
+                property="og:image"
+                content="/assets/images/link_preview.jpg"
+            />
+        </Head>
+    )
+}
+export default MetaHandler
