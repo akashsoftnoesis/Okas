@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'James Fajardo';
+  src: url(./James+Fajardo.eot);
+  src: url(./James+Fajardo.eot?#iefix) format('embedded-opentype'),
+       url(./James+Fajardo.otf) format('otf'),
+       url(./James+Fajardo.svg#James%20Fajardo) format('svg'),
+       url(./James+Fajardo.ttf) format('truetype'),
+       url(./James+Fajardo.woff) format('woff'),
+       url(./James+Fajardo.woff2) format('woff2');
+}

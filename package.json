@@ -1,0 +1,37 @@
+{
+  "name": "okas-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js",
+    "lint": "eslint ./src/ --ignore-path .gitignore --ignore-pattern internals/scripts",
+    "lint:fix": "yarn lint --fix",
+    "lint:watch": "yarn lint --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "moment": "^2.30.1",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.13",
+    "puppeteer": "^10.4.0",
+    "redis": "^3.1.2",
+    "util": "^0.12.5",
+    "vcards-js2": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.29.1",
+    "nodemon": "^2.0.22"
+  }
+}
